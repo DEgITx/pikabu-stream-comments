@@ -3,8 +3,9 @@ var cheerio = require('cheerio');
 var http = require('http');
 var iconv  = require('iconv-lite');
 
-let link = 'https://pikabu.ru/story/kaver_na_odin_iz_urovney_aladdina_4578279'
-let interval = 8000
+const link = process.argv[2] || 'https://pikabu.ru/story/nevyishedshaya_pesnyatatu_s_moey_metal_muzyikoy_5954104'
+const interval = 8000
+const commentsSelector = '.comments .comment'
 
 let html = '';
 
@@ -23,7 +24,7 @@ let parse = () => {
 	  html += $('head').html()
 
 	  let posts = []
-	  $('.b-comment').each(function() {
+	  $(commentsSelector).each(function() {
 	  		posts.push($(this))
 	  })
 	  posts = posts.sort((a, b) => {
@@ -53,6 +54,9 @@ let parse = () => {
 		    	document.body.innerHTML = data
 		 	 });
 	  	</script>
+	  	<style>
+	  	.b-comments { background: rgba(0,0,0,0) !important; }
+	  	</style>
 	  `
 
 	  html += '</html>'
