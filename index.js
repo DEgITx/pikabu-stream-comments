@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var http = require('http');
 var iconv  = require('iconv-lite');
 
-const link = process.argv[2] || 'https://pikabu.ru/story/nevyishedshaya_pesnyatatu_s_moey_metal_muzyikoy_5954104'
+const link = process.argv[2] || 'https://pikabu.ru/story/strim_dlya_podpischikov_s_pikabu_4_muzyikalnyiy_proekt_degitx_kryisinyiy_poiskovik_kibersportivnaya_platforma_i_drugie_proektyi_5956166'
 const interval = 8000
 const commentsSelector = '.comments .comment'
 
@@ -55,7 +55,7 @@ let parse = () => {
 		 	 });
 	  	</script>
 	  	<style>
-	  	.b-comments { background: rgba(0,0,0,0) !important; }
+
 	  	</style>
 	  `
 
